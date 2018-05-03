@@ -8,6 +8,9 @@ no Instituto Federal do Piauí - IFPI campus Teresina Central, turma de 2016.1.
 
 - [Estrutura de Dados](https://github.com/sywrahg/Tecnologo-ADS/tree/master/Estrutura%20de%20Dados)
   - (2016.2) Módulo 2, ministrada pela professora Elanne dos Santos.
+  
+- [Programação Orientada a Objetos](https://github.com/sywrahg/Tecnologo-ADS/tree/master/Programa%C3%A7%C3%A3o%20Orientada%20a%20Objetos)
+  - (2016.2) Módulo 2, ministrada pelo professor @rogerio410.
 
 - [Sistemas Operacionais](https://github.com/sywrahg/Tecnologo-ADS/tree/master/Sistemas%20Operacionais)
   - (2016.2) Módulo 2, ministrada pelo professor Ricardo Martins Ramos.
