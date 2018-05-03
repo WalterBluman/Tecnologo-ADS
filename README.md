@@ -20,3 +20,6 @@ no Instituto Federal do Piauí - IFPI campus Teresina Central, turma de 2016.1.
 
 - [Programação para Internet](https://github.com/sywrahg/Programacao-para-Internet)
   - (2017.2) Módulo 4, ministrada pelo professor Ely Miranda.
+
+- [Tópicos Especiais em Programação](https://github.com/sywrahg/Tecnologo-ADS/tree/master/Topicos%20Especiais%20em%20Programa%C3%A7%C3%A3o)
+  - (2018.1) Módulo 5, ministrada pelo professor Ely Miranda.
