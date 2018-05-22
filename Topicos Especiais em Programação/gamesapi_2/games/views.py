@@ -8,8 +8,8 @@ class GameCategories(ModelViewSet):
 	
 
 class Games(ModelViewSet):
-	queryset = GameCategory.objects.all()
-	serializer_class = GameCategorySerializer
+	queryset = Game.objects.all()
+	serializer_class = GameSerializer
 
 
 class Players(ModelViewSet):
