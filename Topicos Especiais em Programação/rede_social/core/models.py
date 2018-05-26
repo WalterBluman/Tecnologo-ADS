@@ -5,7 +5,7 @@ class User(models.Model):
 	name = models.CharField(max_length=70)
 	username = models.CharField(max_length=45)
 	email = models.CharField(max_length=70)
-	address = models.OneToOneField('Address',related_name='user' ,null=True ,on_delete=models.SET_NULL)
+	address = models.OneToOneField('Address',related_name='user' ,null=True ,on_delete=models.SET_NULL)	
 
 
 class Address(models.Model):
@@ -19,6 +19,10 @@ class Post(models.Model):
 	title = models.CharField(max_length=45)
 	body = models.CharField(max_length=140)
 	user = models.ForeignKey('User', related_name='posts', on_delete=models.CASCADE)
+
+	@property
+	def comments_quantity(self):
+		return self.comments.all().count()
 
 
 class Comment(models.Model):

@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import DefaultRouter
-from core.views import Users
+from core.views import Users, Posts, UsersPosts
 
 router = DefaultRouter()
 router.register(r'users', Users)
+router.register(r'posts', Posts)
+router.register(r'users-posts', UsersPosts)
 
 urlpatterns = router.urls 
