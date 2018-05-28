@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Post
+from .models import User, Post, Comment
 
 
 class PostSerializers(serializers.HyperlinkedModelSerializer):
@@ -21,4 +21,12 @@ class UserPostSerializers(serializers.HyperlinkedModelSerializer):
 class UserSerializers(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = User
-		fields = ('pk', 'username', 'name', 'email')		
+		fields = ('pk', 'username', 'name', 'email')	
+
+
+class CommentSerializers(serializers.HyperlinkedModelSerializer):
+	post = serializers.SlugRelatedField(queryset=Post.objects.all(),slug_field='title')
+
+	class Meta:
+		model = Comment
+		fields = ('pk','post','name','email','body')
