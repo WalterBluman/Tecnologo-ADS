@@ -1,27 +1,31 @@
 from rest_framework import serializers
-from .models import User, Post, Comment
+from .models import Profile, Post, Comment
+from django.contrib.auth.models import User
 
 
 class PostSerializers(serializers.HyperlinkedModelSerializer):
-	user = serializers.SlugRelatedField(queryset=User.objects.all(),slug_field='name')
+	profile = serializers.SlugRelatedField(queryset = Profile.objects.all(),slug_field='name')
+	owner = serializers.ReadOnlyField(source = 'owner.username')
 	
 	class Meta:
 		model = Post
-		fields = ('url','pk', 'title','body','user', 'comments_quantity')
+		fields = ('url','pk', 'title','body','profile', 'comments_quantity', 'owner')
 
 
-class UserPostSerializers(serializers.HyperlinkedModelSerializer):
+class ProfilePostSerializers(serializers.HyperlinkedModelSerializer):
 	posts = PostSerializers(many=True)
 
 	class Meta:
-		model = User
+		model = Profile
 		fields = ('pk', 'username', 'name', 'email','posts')		
 
 
-class UserSerializers(serializers.HyperlinkedModelSerializer):
+class ProfileSerializers(serializers.HyperlinkedModelSerializer):
+	user = serializers.SlugRelatedField(queryset = User.objects.all(),slug_field='username')
+	
 	class Meta:
-		model = User
-		fields = ('pk', 'username', 'name', 'email')	
+		model = Profile
+		fields = ('pk', 'username', 'name', 'email', 'user')	
 
 
 class CommentSerializers(serializers.HyperlinkedModelSerializer):

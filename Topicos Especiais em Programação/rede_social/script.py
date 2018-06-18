@@ -5,13 +5,13 @@ import django
 def main():
 	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rede_social.settings")
 	django.setup()
-	from core.models import User,Address,Comment,Post
+	from core.models import Profile,Address,Comment,Post
 
 	file = open('./db.json')
 	data = json.load(file)
 	for user in data['users']:
-		if not User.objects.filter(pk=user['id']).exists():
-			User.objects.create(pk=user['id'],
+		if not Profile.objects.filter(pk= user['id']).exists():
+			Profile.objects.create(pk=user['id'],
 				name=user['name'],
 				email=user['email'],
 				address=Address.objects.create(street=user['address']['street'],suite=user['address']['suite'],city=user['address']['city'],zipcode=user['address']['zipcode']))
@@ -21,9 +21,9 @@ def main():
 	for post in data['posts']:
 		if not Post.objects.filter(pk=post['id']).exists():
 			Post.objects.create(pk=post['id'],
-				title=post['title'],
-				body=post['body'],
-				user=User.objects.get(pk=post['userId']))
+				title = post['title'],
+				body = post['body'],
+				profile = Profile.objects.get(pk=post['userId']))
 
 	print('Posts criados\n')	
 
